@@ -14,14 +14,13 @@
         </div>
       </section>
       <section class="main hidden ">
-        <align-items="left"><h1>  </h1>
+        <h1>  </h1>
         <audio src="Excuses - Garry Sandhu (Mr-Punjab.Com).mp3" controls>
         </audio>
       </section>
     </div>
     <script src="jquery.js"></script>
     <script type="text/javascript">
-
     $("#go-button").on('click',function(){
       var name=$('#name-input').val();
       if(name.length>=2)
@@ -29,12 +28,12 @@
       var message="Welcome "+ name;
       $('.main h1').text(message);
       $('.welcome-screen').addClass('hidden');
+      $('.wrapper').addClass('back');
       $('.main').removeClass('hidden');
-
     }
     else {
       $('#name-input').addClass('error');
-      $('#name-input').val("name must be of min 2 charcters");
+      alert("name must have minimum of 2 characters");
     }
     });
     </script>
