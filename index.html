@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Welcome to world of music</title>
+  <link type="text/css" rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.css">
   <link type="text/css" rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -14,22 +15,47 @@
         </div>
       </section>
       <section class="main hidden ">
-        <h1>  </h1>
-        <audio src="Excuses - Garry Sandhu (Mr-Punjab.Com).mp3" controls>
+        <header><div class=" user-name"> </div></header>
+        <section class="content">
+        <audio src="Excuses - Garry Sandhu (Mr-Punjab.Com).mp3"   >
         </audio>
+
       </section>
+      <footer>
+        <i class=" play-icon fa fa-play fa-4x" aria-hidden="true"></i>
+      </footer>
+
     </div>
     <script src="jquery.js"></script>
     <script type="text/javascript">
+
+    $('.fa-play').on('click',function(){
+      var song=document.querySelector("audio");
+      if(song.paused==true){
+        song.play();
+        $('.play-icon').removeClass('fa-play');
+        $('.play-icon').addClass('fa-pause');
+        console.log("play");
+      }
+      else{
+        song.pause();
+        $('.play-icon').removeClass('fa-pause');
+        $('.play-icon').addClass('fa-play');
+        console.log('pause');
+      }
+    });
+
+
     $("#go-button").on('click',function(){
       var name=$('#name-input').val();
       if(name.length>=2)
       {
       var message="Welcome "+ name;
-      $('.main h1').text(message);
+      $('.main .user-name').text(message);
       $('.welcome-screen').addClass('hidden');
       $('.wrapper').addClass('back');
       $('.main').removeClass('hidden');
+
     }
     else {
       $('#name-input').addClass('error');
